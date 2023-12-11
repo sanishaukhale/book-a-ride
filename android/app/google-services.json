@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "238906833613",
+    "project_id": "book-a-ride-c094e",
+    "storage_bucket": "book-a-ride-c094e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238906833613:android:9e0cc0fe839b25b4418784",
+        "android_client_info": {
+          "package_name": "com.example.book_a_ride"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASnreIA-qZ916PVBhf9NFx80C3o2EO81c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
