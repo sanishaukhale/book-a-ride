@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return  SplashScreenView(
       navigateWhere: isLoaded,
-      navigateRoute: const LoginWithEmail(),
+      navigateRoute:  LoginWithEmail(),
       backgroundColor: Colors.blueAccent,
 
       pageRouteTransition: PageRouteTransition.SlideTransition,

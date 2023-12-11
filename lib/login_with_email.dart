@@ -1,11 +1,15 @@
+import 'package:book_a_ride/home.dart';
 import 'package:book_a_ride/login_with_phone.dart';
 import 'package:book_a_ride/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoginWithEmail extends StatelessWidget {
-  const LoginWithEmail({super.key});
+import 'auth.dart';
 
+class LoginWithEmail extends StatelessWidget {
+  LoginWithEmail({super.key});
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +25,9 @@ class LoginWithEmail extends StatelessWidget {
               "EMAIL",
               style: TextStyle(fontSize: 15),
             ),
-            TextFormField(),
+            TextFormField(
+              controller: email,
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -29,13 +35,26 @@ class LoginWithEmail extends StatelessWidget {
               "PASSWORD",
               style: TextStyle(fontSize: 15),
             ),
-            TextFormField(),
+            TextFormField(
+              controller: password,
+            ),
             const SizedBox(
               height: 10,
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Auth a = Auth();
+                 a.signInUser(email.text, password.text);
+                  // if (x) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => HomeScreen()),
+                  //   );
+                  // } else {
+                  //   print("ERROR");
+                  // }
+                },
                 child: const Text(
                   "Login",
                   style: TextStyle(fontSize: 15),
@@ -51,8 +70,8 @@ class LoginWithEmail extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => LoginWithEmail()),
                     );
                   },
-                  child:
-                  Text("Login With Phone", style: TextStyle(color: Colors.red)),
+                  child: Text("Login With Phone",
+                      style: TextStyle(color: Colors.red)),
                 ),
                 Spacer(),
                 TextButton(
@@ -62,8 +81,7 @@ class LoginWithEmail extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Signup()),
                     );
                   },
-                  child:
-                  Text("SIGNUP", style: TextStyle(color: Colors.red)),
+                  child: Text("SIGNUP", style: TextStyle(color: Colors.red)),
                 ),
               ],
             ),

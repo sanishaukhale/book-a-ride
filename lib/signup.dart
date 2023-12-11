@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'auth.dart';
+
 class Signup extends StatelessWidget {
   Signup({super.key});
   final TextEditingController email = TextEditingController();
@@ -39,8 +41,8 @@ class Signup extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-
-
+                  Auth a = Auth();
+                  a.createUser(email.text, password.text);
                 },
                 child: const Text(
                   "SIGNUP",
