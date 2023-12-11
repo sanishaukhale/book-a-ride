@@ -38,7 +38,10 @@ class Signup extends StatelessWidget {
             SizedBox(height: 10,),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+
+
+                },
                 child: const Text(
                   "SIGNUP",
                   style: TextStyle(fontSize: 15),
