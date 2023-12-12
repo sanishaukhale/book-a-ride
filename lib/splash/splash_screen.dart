@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tbib_splash_screen/splash_screen.dart';
+import 'package:tbib_splash_screen/splash_screen_view.dart';
 
 import '../login_with_email/login_with_email.dart';
 
@@ -22,13 +23,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return  SplashScreenView(
+    return SplashScreenView(
       navigateWhere: isLoaded,
-      navigateRoute:  LoginWithEmail(),
-      backgroundColor: Colors.blueAccent,
-
+      navigateRoute: LoginWithEmail(),
+      backgroundColor: Colors.green.shade600,
+      logoSize: 250,
+      text: FadeAnimatedText(
+        "Welcome",
+        textStyle: const TextStyle(
+        
+          fontSize: 32.0,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
       pageRouteTransition: PageRouteTransition.SlideTransition,
       imageSrc: "assets/images/logo.png",
+
       //displayLoading: false,
     );
   }
