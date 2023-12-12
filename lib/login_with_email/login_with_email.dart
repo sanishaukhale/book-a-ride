@@ -32,70 +32,91 @@ class LoginWithEmail extends StatelessWidget {
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 10,
+                height: 40,
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                height: 55,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      width: 20,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.88,
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        .hasMatch(value!)) {
+                      return null;
+                    } else {
+                      return 'Enter a valid email';
+                    }
+                  },
+                  style: const TextStyle(color: Colors.grey),
+                  controller: email,
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                    hintStyle: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.grey,
                     ),
-                    Expanded(
-                      child: TextField(
-                        // onChanged: (value) {
-                        //   phone = value;
-                        // },
-                        controller: email,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Email",
-                        ),
-                      ),
-                    )
-                  ],
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          const BorderSide(color: Colors.green, width: 1),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          const BorderSide(color: Colors.green, width: 1),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                height: 55,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      width: 10,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.88,
+                child: TextFormField(
+                  obscureText: true,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (password.text != null) {
+                      return "Password cannot be null";
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.grey),
+                  controller: password,
+                  decoration: InputDecoration(
+                    hintText: 'Password',
+                    hintStyle: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.grey,
                     ),
-                    const SizedBox(
-                      width: 10,
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
-                    Expanded(
-                      child: TextField(
-                        // onChanged: (value) {
-                        //   phone = value;
-                        // },
-                        controller: password,
-                        obscureText: true,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Password",
-                        ),
-                      ),
-                    )
-                  ],
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          const BorderSide(color: Colors.green, width: 1),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          const BorderSide(color: Colors.green, width: 1),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -112,8 +133,15 @@ class LoginWithEmail extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Auth a = Auth();
-                      a.signInUser(email.text, password.text);
+                      if (email.text.isNotEmpty || password.text.isNotEmpty) {
+                        Auth a = Auth();
+                        a.signInUser(email.text, password.text);
+                      } else {
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text("Fields cannot be Empty"),
+                        ));
+                      }
                     },
                     child: const Text("Login")),
               ),
@@ -136,7 +164,7 @@ class LoginWithEmail extends StatelessWidget {
                         },
                         child: const Text("Signup")),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   SizedBox(
                     height: 45,
                     child: ElevatedButton(
@@ -147,7 +175,7 @@ class LoginWithEmail extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Get.to(LoginWithPhone());
+                          Get.to(const LoginWithPhone());
                         },
                         child: const Text("Login with Phone")),
                   )

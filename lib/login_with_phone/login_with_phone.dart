@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../authentication/auth.dart';
+import '../login_with_email/login_with_email.dart';
 
 class LoginWithPhone extends StatefulWidget {
   const LoginWithPhone({Key? key}) : super(key: key);
@@ -78,7 +79,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                       width: 10,
                     ),
                     Expanded(
-                      child: TextField(
+                      child: TextFormField(
                         onChanged: (value) {
                           phone = value;
                         },
@@ -106,12 +107,59 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                     ),
                   ),
                   onPressed: () {
-                    Auth a = Auth();
-                    a.sendOTP(countryController.text + phone);
-                    Get.to(const MyVerify());
+                    if (phone.isNotEmpty) {
+                      Auth a = Auth();
+                      a.sendOTP(countryController.text + phone);
+                      Get.to(const MyVerify());
+                    } else {
+                      Get.showSnackbar(
+                        const GetSnackBar(
+                          title: "Error",
+                          message: 'Phone number cannot be empty',
+                          backgroundColor: Colors.red,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
+                    }
                   },
-                  child: const Text("Send the code"),
+                  child: const Text("Send OTP"),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    height: 45,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green.shade600,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () {
+                          Get.to(const LoginWithPhone());
+                        },
+                        child: const Text("Signup")),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    height: 45,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green.shade600,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () {
+                          Get.to(LoginWithEmail());
+                        },
+                        child: const Text("Login with Email")),
+                  ),
+                ],
               )
             ],
           ),
