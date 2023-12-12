@@ -1,4 +1,4 @@
-import 'package:book_a_ride/home.dart';
+import 'package:book_a_ride/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 

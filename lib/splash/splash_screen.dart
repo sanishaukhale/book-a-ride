@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tbib_splash_screen/splash_screen.dart';
 
-import 'login_with_email.dart';
+import '../login_with_email/login_with_email.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

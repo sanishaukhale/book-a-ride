@@ -1,10 +1,10 @@
-import 'package:book_a_ride/home.dart';
-import 'package:book_a_ride/login_with_phone.dart';
-import 'package:book_a_ride/signup.dart';
+import 'package:book_a_ride/home/home.dart';
+import 'package:book_a_ride/login_with_phone/login_with_phone.dart';
+import 'package:book_a_ride/signup/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'auth.dart';
+import '../authentication/auth.dart';
 
 class LoginWithEmail extends StatelessWidget {
   LoginWithEmail({super.key});
@@ -67,7 +67,7 @@ class LoginWithEmail extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginWithEmail()),
+                      MaterialPageRoute(builder: (context) => LoginWithPhone()),
                     );
                   },
                   child: Text("Login With Phone",
