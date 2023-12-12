@@ -33,15 +33,15 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/phone.png',
-                width: 150,
-                height: 150,
+                'assets/images/login.png',
+                width: 200,
+                height: 200,
               ),
               const SizedBox(
                 height: 25,
               ),
               const Text(
-                "Phone Verification",
+                "Login with Phone",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
