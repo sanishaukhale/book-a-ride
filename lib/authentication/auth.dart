@@ -1,21 +1,33 @@
 import 'package:book_a_ride/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Auth {
   createUser(String emailAddress, String password) async {
     try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress,
         password: password,
       );
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
-      }
+      Get.showSnackbar(
+        const GetSnackBar(
+          title: "Success",
+          message: 'Account created',
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      Get.to(const HomeScreen());
     } catch (e) {
-      print(e);
+      Get.showSnackbar(
+        const GetSnackBar(
+          title: "Error",
+          message: 'Something went wrong',
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
+        ),
+      );
     }
   }
 
@@ -23,12 +35,17 @@ class Auth {
     try {
       final user = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
-      if (user != null) {
-        Get.to(const HomeScreen());
-      }
-      return false;
+
+      Get.to(const HomeScreen());
     } catch (e) {
-      print("error");
+      Get.showSnackbar(
+        const GetSnackBar(
+          title: "Error",
+          message: 'Something went wrong',
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
+        ),
+      );
     }
   }
 
@@ -55,7 +72,14 @@ class Auth {
       await auth.signInWithCredential(credential);
       Get.to(const HomeScreen());
     } catch (e) {
-      print("error");
+      Get.showSnackbar(
+        const GetSnackBar(
+          title: "Error",
+          message: 'Something went wrong',
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
+        ),
+      );
     }
   }
 }
