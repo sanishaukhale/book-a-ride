@@ -1,7 +1,5 @@
-import 'package:book_a_ride/home/home.dart';
 import 'package:book_a_ride/login_with_phone/login_with_phone.dart';
 import 'package:book_a_ride/signup/signup.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -50,7 +48,6 @@ class LoginWithEmail extends StatelessWidget {
                     const SizedBox(
                       width: 20,
                     ),
-
                     Expanded(
                       child: TextField(
                         // onChanged: (value) {
@@ -78,10 +75,10 @@ class LoginWithEmail extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Expanded(
@@ -92,7 +89,7 @@ class LoginWithEmail extends StatelessWidget {
                         controller: password,
                         obscureText: true,
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Password",
                         ),

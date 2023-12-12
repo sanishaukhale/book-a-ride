@@ -14,10 +14,9 @@ class LoginWithPhone extends StatefulWidget {
 class _LoginWithPhoneState extends State<LoginWithPhone> {
   TextEditingController countryController = TextEditingController();
   var phone = "";
- // static String verify ="";
+
   @override
   void initState() {
-    // TODO: implement initState
     countryController.text = "+91";
     super.initState();
   }
@@ -84,7 +83,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                           phone = value;
                         },
                         keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Phone",
                         ),
@@ -100,18 +99,19 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                 width: double.infinity,
                 height: 45,
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green.shade600,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green.shade600,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    onPressed: () {
-                      Auth a = Auth();
-                      a.sendOTP(countryController.text+phone);
-                      Get.to(const MyVerify());
-                    },
-                    child: const Text("Send the code")),
+                  ),
+                  onPressed: () {
+                    Auth a = Auth();
+                    a.sendOTP(countryController.text + phone);
+                    Get.to(const MyVerify());
+                  },
+                  child: const Text("Send the code"),
+                ),
               )
             ],
           ),

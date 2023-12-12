@@ -24,7 +24,7 @@ class Auth {
       final user = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
       if (user != null) {
-        Get.to(HomeScreen());
+        Get.to(const HomeScreen());
       }
       return false;
     } catch (e) {

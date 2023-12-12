@@ -31,7 +31,6 @@ class _MyHomePageState extends State<MyHomePage> {
       text: FadeAnimatedText(
         "Welcome",
         textStyle: const TextStyle(
-        
           fontSize: 32.0,
           fontWeight: FontWeight.w600,
         ),

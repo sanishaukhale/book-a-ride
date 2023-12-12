@@ -1,5 +1,4 @@
 import 'package:book_a_ride/login_with_email/login_with_email.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +25,6 @@ class Signup extends StatelessWidget {
                 width: 200,
                 height: 200,
               ),
-
               const Text(
                 "SIGNUP",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -50,7 +48,6 @@ class Signup extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextField(
-
                         controller: email,
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
@@ -76,16 +73,12 @@ class Signup extends StatelessWidget {
                     const SizedBox(
                       width: 20,
                     ),
-
                     Expanded(
                       child: TextField(
-                        // onChanged: (value) {
-                        //   phone = value;
-                        // },
                         controller: password,
                         obscureText: true,
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Password",
                         ),
@@ -96,7 +89,8 @@ class Signup extends StatelessWidget {
               ),
               const SizedBox(
                 height: 20,
-              ), Container(
+              ),
+              Container(
                 height: 55,
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.grey),
@@ -107,10 +101,8 @@ class Signup extends StatelessWidget {
                     const SizedBox(
                       width: 20,
                     ),
-
                     Expanded(
                       child: TextField(
-
                         controller: confirmPassword,
                         obscureText: true,
                         keyboardType: TextInputType.emailAddress,
@@ -161,7 +153,7 @@ class Signup extends StatelessWidget {
                         },
                         child: const Text("Login with Email")),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   SizedBox(
                     height: 45,
                     child: ElevatedButton(
@@ -172,7 +164,7 @@ class Signup extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                         Get.to(LoginWithPhone());
+                          Get.to(LoginWithPhone());
                         },
                         child: const Text("Login with Phone")),
                   )
