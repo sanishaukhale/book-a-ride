@@ -1,4 +1,8 @@
+import 'package:book_a_ride/login_with_phone/verify.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../authentication/auth.dart';
 
 class LoginWithPhone extends StatefulWidget {
   const LoginWithPhone({Key? key}) : super(key: key);
@@ -9,7 +13,8 @@ class LoginWithPhone extends StatefulWidget {
 
 class _LoginWithPhoneState extends State<LoginWithPhone> {
   TextEditingController countryController = TextEditingController();
-
+  var phone = "";
+ // static String verify ="";
   @override
   void initState() {
     // TODO: implement initState
@@ -73,8 +78,11 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                     const SizedBox(
                       width: 10,
                     ),
-                    const Expanded(
+                    Expanded(
                       child: TextField(
+                        onChanged: (value) {
+                          phone = value;
+                        },
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -99,7 +107,9 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'verify');
+                      Auth a = Auth();
+                      a.sendOTP(countryController.text+phone);
+                      Get.to(const MyVerify());
                     },
                     child: const Text("Send the code")),
               )

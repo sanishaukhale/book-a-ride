@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.6
   firebase_core: ^2.24.2
   firebase_auth: ^4.15.2
+  pinput: ^3.0.1
 
 
 dev_dependencies:
