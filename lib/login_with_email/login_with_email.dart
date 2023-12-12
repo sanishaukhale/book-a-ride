@@ -13,98 +13,116 @@ class LoginWithEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text("LOGIN WITH EMAIL")),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "EMAIL",
-              style: TextStyle(fontSize: 15),
-            ),
-            TextFormField(
-              controller: email,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "PASSWORD",
-              style: TextStyle(fontSize: 15),
-            ),
-            TextFormField(
-              controller: password,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Auth a = Auth();
-                 a.signInUser(email.text, password.text);
-                  // if (x) {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => HomeScreen()),
-                  //   );
-                  // } else {
-                  //   print("ERROR");
-                  // }
-                },
-                child: const Text(
-                  "Login",
-                  style: TextStyle(fontSize: 15),
+      body: Container(
+        margin: const EdgeInsets.only(left: 25, right: 25),
+        alignment: Alignment.center,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/phone.png',
+                width: 150,
+                height: 150,
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              const Text(
+                "Login with Email",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Container(
+                height: 55,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(10)),
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: TextField(
+                        // onChanged: (value) {
+                        //   phone = value;
+                        // },
+                        controller: email,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Email",
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ),
-            Row(
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginWithPhone()),
-                    );
-                  },
-                  child: Text("Login With Phone",
-                      style: TextStyle(color: Colors.red)),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 55,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(10)),
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: TextField(
+                        // onChanged: (value) {
+                        //   phone = value;
+                        // },
+                        controller: password,
+                        obscureText: true,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Password",
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-                Spacer(),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Signup()),
-                    );
-                  },
-                  child: Text("SIGNUP", style: TextStyle(color: Colors.red)),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                ElevatedButton(
-                    onPressed: () {},
-                    child: Image.asset(
-                      "assets/images/google.png",
-                      height: 80,
-                      width: 80,
-                    )),
-                Spacer(),
-                ElevatedButton(
-                    onPressed: () {},
-                    child: Image.asset(
-                      "assets/images/facebook.png",
-                      height: 80,
-                      width: 80,
-                    ))
-              ],
-            )
-          ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 45,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green.shade600,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onPressed: () {
+                      Auth a = Auth();
+                      a.signInUser(email.text, password.text);
+                    },
+                    child: const Text("Login")),
+              )
+            ],
+          ),
         ),
       ),
     );

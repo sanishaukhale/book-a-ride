@@ -28,7 +28,7 @@ class Auth {
       }
       return false;
     } catch (e) {
-      print(e);
+      print("error");
     }
   }
 
