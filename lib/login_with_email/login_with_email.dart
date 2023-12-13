@@ -85,7 +85,7 @@ class LoginWithEmail extends StatelessWidget {
                   obscureText: true,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) {
-                    if (password.text != null) {
+                    if (password.text == null) {
                       return "Password cannot be null";
                     }
                     return null;

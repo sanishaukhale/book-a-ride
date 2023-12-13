@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
             Map<String, dynamic> data = document.data() as Map<String, dynamic>;
             return GestureDetector(
               onTap: () {
-                Get.to(const Details());
+                Get.to( Details(id: document.id));
               },
               child: Card(
                 elevation: 4.0,
