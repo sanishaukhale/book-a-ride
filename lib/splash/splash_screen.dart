@@ -40,19 +40,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SplashScreenView(
-      navigateWhere: isLoaded,
-      navigateRoute: sharedPref ? const HomeScreen() : LoginWithEmail(),
-      logoSize: 250,
-      text: FadeAnimatedText(
-        "Welcome",
-        textStyle: const TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w600,
+    return Scaffold(
+      body: SplashScreenView(
+        navigateWhere: isLoaded,
+        navigateRoute: sharedPref ? const HomeScreen() : LoginWithEmail(),
+        logoSize: 250,
+        text: FadeAnimatedText(
+          "Welcome",
+          textStyle: const TextStyle(
+            fontSize: 32.0,
+            fontWeight: FontWeight.w600,
+          ),
         ),
+        pageRouteTransition: PageRouteTransition.SlideTransition,
+        imageSrc: "assets/images/logo.png",
       ),
-      pageRouteTransition: PageRouteTransition.SlideTransition,
-      imageSrc: "assets/images/logo.png",
     );
   }
 }

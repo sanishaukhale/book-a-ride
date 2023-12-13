@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.logout),
-          )
+          ),
         ],
       ),
       body: StreamBuilder(

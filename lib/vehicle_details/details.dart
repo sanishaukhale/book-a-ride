@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:twilio_flutter/twilio_flutter.dart';
 
 class Details extends StatelessWidget {
   final String id;
 
-  const Details({super.key, required this.id});
+  Details({super.key, required this.id});
   fetchCarData() async {
     try {
       DocumentSnapshot documentSnapshot =
@@ -22,6 +23,7 @@ class Details extends StatelessWidget {
     }
   }
 
+  late TwilioFlutter twilioFlutter;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,17 +35,13 @@ class Details extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           }
-
           if (!snapshot.hasData) {
             return const Text('Document not found');
           }
-
           var carDetails = snapshot.data!;
-
           return SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -88,6 +86,66 @@ class Details extends StatelessWidget {
                     carDetails['description'],
                     style: const TextStyle(
                       fontSize: 16.0,
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 80,
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (carDetails["availability"]) {
+                        twilioFlutter = TwilioFlutter(
+                            accountSid: 'AC74ab51642b9534fa67dc34c3ef20b601',
+                            authToken: 'd53ded7d5bbe370bff3fc7112556f990',
+                            twilioNumber: '+19375950946');
+                        twilioFlutter.sendSMS(
+                            toNumber: '+919145681593',
+                            messageBody:
+                                'Booking Confirmed!\nYou have successfully booked ${carDetails['name']}.');
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Booking Confirmed!'),
+                              content: Text(
+                                  'You have successfully booked ${carDetails['name']}.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Car Unavailable!!!!'),
+                              content: Text(
+                                  '${carDetails['name']} is unavailable for now.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    },
+                    child: const Text(
+                      'Book Now',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

@@ -1,3 +1,4 @@
+import 'package:book_a_ride/signup/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -150,7 +151,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                           ),
                         ),
                         onPressed: () {
-                          Get.to(const LoginWithPhone());
+                          Get.to(Signup());
                         },
                         child: const Text("Signup")),
                   ),
