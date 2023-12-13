@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+
 import '../authentication/auth.dart';
 
 class MyVerify extends StatefulWidget {
@@ -18,22 +19,46 @@ class _MyVerifyState extends State<MyVerify> {
       height: 56,
       textStyle: const TextStyle(
           fontSize: 20,
-          color: Color.fromRGBO(30, 60, 87, 1),
+          color: Color.fromRGBO(
+            30,
+            60,
+            87,
+            1,
+          ),
           fontWeight: FontWeight.w600),
       decoration: BoxDecoration(
-        border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
+        border: Border.all(
+          color: const Color.fromRGBO(
+            234,
+            239,
+            243,
+            1,
+          ),
+        ),
         borderRadius: BorderRadius.circular(20),
       ),
     );
 
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: const Color.fromRGBO(114, 178, 238, 1)),
+      border: Border.all(
+        color: const Color.fromRGBO(
+          114,
+          178,
+          238,
+          1,
+        ),
+      ),
       borderRadius: BorderRadius.circular(8),
     );
 
     final submittedPinTheme = defaultPinTheme.copyWith(
       decoration: defaultPinTheme.decoration?.copyWith(
-        color: const Color.fromRGBO(234, 239, 243, 1),
+        color: const Color.fromRGBO(
+          234,
+          239,
+          243,
+          1,
+        ),
       ),
     );
 
@@ -53,7 +78,10 @@ class _MyVerifyState extends State<MyVerify> {
         elevation: 0,
       ),
       body: Container(
-        margin: const EdgeInsets.only(left: 25, right: 25),
+        margin: const EdgeInsets.only(
+          left: 25,
+          right: 25,
+        ),
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(
@@ -69,7 +97,10 @@ class _MyVerifyState extends State<MyVerify> {
               ),
               const Text(
                 "Phone Verification",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -98,26 +129,34 @@ class _MyVerifyState extends State<MyVerify> {
                 width: double.infinity,
                 height: 45,
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    onPressed: () async {
-                      Auth a = Auth();
-                      a.verifyOtp(code);
-                    },
-                    child: const Text("Verify Phone Number")),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green.shade600,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onPressed: () async {
+                    Auth a = Auth();
+                    a.verifyOtp(code);
+                  },
+                  child: const Text(
+                    "Verify Phone Number",
+                  ),
+                ),
               ),
               Row(
                 children: [
                   TextButton(
-                      onPressed: () {
-                        // Get.to(LoginWithPhone());
-                      },
-                      child: const Text(
-                        "Edit Phone Number ?",
-                        style: TextStyle(color: Colors.black),
-                      ))
+                    onPressed: () {
+                      // Get.to(LoginWithPhone());
+                    },
+                    child: const Text(
+                      "Edit Phone Number ?",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                  )
                 ],
               )
             ],

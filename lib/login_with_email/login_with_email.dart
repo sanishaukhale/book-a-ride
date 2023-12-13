@@ -1,14 +1,16 @@
-import 'package:book_a_ride/login_with_phone/login_with_phone.dart';
-import 'package:book_a_ride/signup/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/login_with_phone/login_with_phone.dart';
+import '/signup/signup.dart';
 import '../authentication/auth.dart';
 
 class LoginWithEmail extends StatelessWidget {
   LoginWithEmail({super.key});
+
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,21 +59,31 @@ class LoginWithEmail extends StatelessWidget {
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.red, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                        width: 1,
+                      ),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.red, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                        width: 1,
+                      ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          const BorderSide(color: Colors.green, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.green,
+                        width: 1,
+                      ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          const BorderSide(color: Colors.green, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.green,
+                        width: 1,
+                      ),
                     ),
                   ),
                 ),
@@ -100,21 +112,31 @@ class LoginWithEmail extends StatelessWidget {
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.red, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                        width: 1,
+                      ),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.red, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                        width: 1,
+                      ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          const BorderSide(color: Colors.green, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.green,
+                        width: 1,
+                      ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          const BorderSide(color: Colors.green, width: 1),
+                      borderSide: const BorderSide(
+                        color: Colors.green,
+                        width: 1,
+                      ),
                     ),
                   ),
                 ),
@@ -168,16 +190,17 @@ class LoginWithEmail extends StatelessWidget {
                   SizedBox(
                     height: 45,
                     child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green.shade600,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        onPressed: () {
-                          Get.to(const LoginWithPhone());
-                        },
-                        child: const Text("Login with Phone")),
+                      ),
+                      onPressed: () {
+                        Get.to(const LoginWithPhone());
+                      },
+                      child: const Text("Login with Phone"),
+                    ),
                   )
                 ],
               )

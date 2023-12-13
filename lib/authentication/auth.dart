@@ -1,8 +1,9 @@
-import 'package:book_a_ride/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '/home/home.dart';
 
 class Auth {
   createUser(String emailAddress, String password) async {
@@ -36,7 +37,7 @@ class Auth {
 
   signInUser(String emailAddress, String password) async {
     try {
-      final user = await FirebaseAuth.instance
+      await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
       Get.showSnackbar(
         const GetSnackBar(
@@ -78,10 +79,8 @@ class Auth {
   verifyOtp(String code) async {
     try {
       final FirebaseAuth auth = FirebaseAuth.instance;
-
       PhoneAuthCredential credential =
           PhoneAuthProvider.credential(verificationId: verify, smsCode: code);
-
       await auth.signInWithCredential(credential);
       Get.showSnackbar(
         const GetSnackBar(

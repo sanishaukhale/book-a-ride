@@ -26,12 +26,12 @@ class Details extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: fetchCarData(), // Replace with the actual document ID
+        future: fetchCarData(),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-                child:
-                    CircularProgressIndicator()); // Loading indicator while fetching data
+              child: CircularProgressIndicator(),
+            );
           }
 
           if (snapshot.hasError) {
@@ -66,10 +66,14 @@ class Details extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                       Text(
-                         carDetails["availability"] ?  'Available': 'Unavailable',
+                      Text(
+                        carDetails["availability"]
+                            ? 'Available'
+                            : 'Unavailable',
                         style: TextStyle(
-                          color: carDetails["availability"] ? Colors.green : Colors.red,
+                          color: carDetails["availability"]
+                              ? Colors.green
+                              : Colors.red,
                           fontSize: 16.0,
                         ),
                       ),
@@ -82,7 +86,9 @@ class Details extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
                     carDetails['description'],
-                    style: const TextStyle(fontSize: 16.0),
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
               ],

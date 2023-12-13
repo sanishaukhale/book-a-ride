@@ -1,7 +1,7 @@
-import 'package:book_a_ride/login_with_phone/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/login_with_phone/verify.dart';
 import '../authentication/auth.dart';
 import '../login_with_email/login_with_email.dart';
 
@@ -42,7 +42,10 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
               ),
               const Text(
                 "Login with Phone",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -53,8 +56,12 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
               Container(
                 height: 55,
                 decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(10)),
+                  border: Border.all(
+                    width: 1,
+                    color: Colors.grey,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -73,7 +80,10 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                     ),
                     const Text(
                       "|",
-                      style: TextStyle(fontSize: 33, color: Colors.grey),
+                      style: TextStyle(
+                        fontSize: 33,
+                        color: Colors.grey,
+                      ),
                     ),
                     const SizedBox(
                       width: 10,
@@ -148,16 +158,17 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                   SizedBox(
                     height: 45,
                     child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green.shade600,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        onPressed: () {
-                          Get.to(LoginWithEmail());
-                        },
-                        child: const Text("Login with Email")),
+                      ),
+                      onPressed: () {
+                        Get.to(LoginWithEmail());
+                      },
+                      child: const Text("Login with Email"),
+                    ),
                   ),
                 ],
               )

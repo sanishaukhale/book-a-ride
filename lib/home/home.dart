@@ -1,10 +1,10 @@
-import 'package:book_a_ride/details.dart';
-import 'package:book_a_ride/login_with_email/login_with_email.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '/vehicle_details/details.dart';
+import '/login_with_email/login_with_email.dart';
 import '../authentication/auth.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,21 +17,27 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Cars'),
         actions: [
           IconButton(
-              onPressed: () async {
-                Auth a = Auth();
-                a.signOut();
-                final SharedPreferences prefs = await SharedPreferences.getInstance();
-                await prefs.clear();
-                Get.offAll(LoginWithEmail());
-              },
-              icon: const Icon(Icons.logout))
+            onPressed: () async {
+              Auth a = Auth();
+              a.signOut();
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              await prefs.clear();
+              Get.offAll(
+                LoginWithEmail(),
+              );
+            },
+            icon: const Icon(Icons.logout),
+          )
         ],
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('vehicles').snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
