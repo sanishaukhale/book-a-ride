@@ -1,7 +1,6 @@
 import 'package:book_a_ride/twilio.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:twilio_flutter/twilio_flutter.dart';
 
 class Details extends StatelessWidget {
   final String id;
