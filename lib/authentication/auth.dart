@@ -18,7 +18,7 @@ class Auth {
           duration: Duration(seconds: 2),
         ),
       );
-      Get.to(const HomeScreen());
+      Get.offAll(const HomeScreen());
     } catch (e) {
       Get.showSnackbar(
         const GetSnackBar(
@@ -43,7 +43,7 @@ class Auth {
           duration: Duration(seconds: 2),
         ),
       );
-      Get.to(const HomeScreen());
+      Get.offAll(const HomeScreen());
     } catch (e) {
       Get.showSnackbar(
         const GetSnackBar(
@@ -85,7 +85,7 @@ class Auth {
           duration: Duration(seconds: 2),
         ),
       );
-      Get.to(const HomeScreen());
+      Get.offAll(const HomeScreen());
     } catch (e) {
       Get.showSnackbar(
         const GetSnackBar(
@@ -96,5 +96,8 @@ class Auth {
         ),
       );
     }
+  }
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

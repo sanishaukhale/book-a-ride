@@ -1,7 +1,10 @@
 import 'package:book_a_ride/details.dart';
+import 'package:book_a_ride/login_with_email/login_with_email.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../authentication/auth.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,6 +14,15 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cars'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Auth a = Auth();
+                a.signOut();
+                Get.to(LoginWithEmail());
+              },
+              icon: const Icon(Icons.logout))
+        ],
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('vehicles').snapshots(),
