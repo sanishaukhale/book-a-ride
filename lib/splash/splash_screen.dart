@@ -1,4 +1,6 @@
+import 'package:book_a_ride/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tbib_splash_screen/splash_screen.dart';
 import 'package:tbib_splash_screen/splash_screen_view.dart';
 
@@ -13,9 +15,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isLoaded = false;
+  bool sharedPref= false;
+  getSharedPref() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    if(prefs.getBool('loggedIn')==null)
+      {
+        sharedPref= false;
+      }
+    else {
+      sharedPref= prefs.getBool('loggedIn')!;
+    }
+
+  }
   @override
   void initState() {
     super.initState();
+    getSharedPref();
     Future.delayed(const Duration(seconds: 2)).then((value) => setState(() {
           isLoaded = true;
         }));
@@ -25,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SplashScreenView(
       navigateWhere: isLoaded,
-      navigateRoute: LoginWithEmail(),
+      navigateRoute: sharedPref?const HomeScreen():LoginWithEmail(),
       backgroundColor: Colors.green.shade600,
       logoSize: 250,
       text: FadeAnimatedText(

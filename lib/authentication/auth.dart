@@ -2,6 +2,7 @@ import 'package:book_a_ride/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Auth {
   createUser(String emailAddress, String password) async {
@@ -18,6 +19,8 @@ class Auth {
           duration: Duration(seconds: 2),
         ),
       );
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('loggedIn', true);
       Get.offAll(const HomeScreen());
     } catch (e) {
       Get.showSnackbar(
@@ -43,6 +46,9 @@ class Auth {
           duration: Duration(seconds: 2),
         ),
       );
+
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('loggedIn', true);
       Get.offAll(const HomeScreen());
     } catch (e) {
       Get.showSnackbar(
@@ -85,6 +91,8 @@ class Auth {
           duration: Duration(seconds: 2),
         ),
       );
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('loggedIn', true);
       Get.offAll(const HomeScreen());
     } catch (e) {
       Get.showSnackbar(
@@ -97,6 +105,7 @@ class Auth {
       );
     }
   }
+
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }

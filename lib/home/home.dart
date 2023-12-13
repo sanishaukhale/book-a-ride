@@ -3,6 +3,7 @@ import 'package:book_a_ride/login_with_email/login_with_email.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../authentication/auth.dart';
 
@@ -16,10 +17,12 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Cars'),
         actions: [
           IconButton(
-              onPressed: () {
+              onPressed: () async {
                 Auth a = Auth();
                 a.signOut();
-                Get.to(LoginWithEmail());
+                final SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.clear();
+                Get.offAll(LoginWithEmail());
               },
               icon: const Icon(Icons.logout))
         ],

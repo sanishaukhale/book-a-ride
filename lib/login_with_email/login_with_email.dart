@@ -134,8 +134,8 @@ class LoginWithEmail extends StatelessWidget {
                     ),
                     onPressed: () {
                       if (email.text.isNotEmpty || password.text.isNotEmpty) {
-                        Auth a = Auth();
-                        a.signInUser(email.text, password.text);
+                        Auth auth = Auth();
+                        auth.signInUser(email.text, password.text);
                       } else {
                         ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
