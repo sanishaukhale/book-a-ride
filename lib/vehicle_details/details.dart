@@ -1,3 +1,4 @@
+import 'package:book_a_ride/twilio.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:twilio_flutter/twilio_flutter.dart';
@@ -23,7 +24,6 @@ class Details extends StatelessWidget {
     }
   }
 
-  late TwilioFlutter twilioFlutter;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,14 +95,8 @@ class Details extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       if (carDetails["availability"]) {
-                        twilioFlutter = TwilioFlutter(
-                            accountSid: 'AC74ab51642b9534fa67dc34c3ef20b601',
-                            authToken: 'd53ded7d5bbe370bff3fc7112556f990',
-                            twilioNumber: '+19375950946');
-                        twilioFlutter.sendSMS(
-                            toNumber: '+919145681593',
-                            messageBody:
-                                'Booking Confirmed!\nYou have successfully booked ${carDetails['name']}.');
+                        Twilio twilio = Twilio();
+                        twilio.sendSms(carDetails['name']);
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {

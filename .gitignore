@@ -30,7 +30,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-
+lib/twilio.dart
+lib/authentication/firebase_options.dart
 # Symbolication related
 app.*.symbols
 
