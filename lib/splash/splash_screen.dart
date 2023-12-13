@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SplashScreenView(
         navigateWhere: isLoaded,
         navigateRoute: sharedPref ? const HomeScreen() : LoginWithEmail(),
-        logoSize: 250,
+        logoSize:500,
         text: FadeAnimatedText(
           "Welcome",
           textStyle: const TextStyle(
@@ -54,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         pageRouteTransition: PageRouteTransition.SlideTransition,
         imageSrc: "assets/images/logo.png",
+        displayLoading: true,
       ),
     );
   }
