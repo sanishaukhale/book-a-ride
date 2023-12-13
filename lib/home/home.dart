@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
             Map<String, dynamic> data = document.data() as Map<String, dynamic>;
             return GestureDetector(
               onTap: () {
-                Get.to( Details(id: document.id));
+                Get.to(Details(id: document.id));
               },
               child: Card(
                 elevation: 4.0,
@@ -49,9 +49,14 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(data["name"]),
                           const Spacer(),
-                          Text(data["availability"]
-                              ? "Available"
-                              : "Unavailable"),
+                          Text(
+                            data["availability"] ? 'Available' : 'Unavailable',
+                            style: TextStyle(
+                              color: data["availability"]
+                                  ? Colors.green
+                                  : Colors.red,
+                            ),
+                          ),
                         ],
                       ),
                     ),

@@ -66,10 +66,10 @@ class Details extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const Text(
-                        'Available',
+                       Text(
+                         carDetails["availability"] ?  'Available': 'Unavailable',
                         style: TextStyle(
-                          color: Colors.green,
+                          color: carDetails["availability"] ? Colors.green : Colors.red,
                           fontSize: 16.0,
                         ),
                       ),
