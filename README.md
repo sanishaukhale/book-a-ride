@@ -22,7 +22,6 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
 
 3. **Home Page:**
    - Display a list of cars fetched from Firestore.
-   - Intuitive user interface for easy navigation.
 
 4. **Car Detail Page:**
    - Detailed information about each car.
@@ -30,7 +29,6 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
 
 5. **Booking Functionality:**
    - Users can book a car from the car detail page.
-   - Booking details are securely stored.
 
 6. **SMS Notification:**
    - Send SMS to a predefined number with booking details.
