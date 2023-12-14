@@ -5,7 +5,9 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
 ## Table of Contents
 
 - [Features](#features)
+- [Installation](#installation)
 - [Screenshots](#screenshots)
+
 
 ## Features
 
@@ -32,6 +34,8 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
 
 6. **SMS Notification:**
    - Send SMS to a predefined number with booking details.
+
+## Installation
 
 
 ## Screenshots
