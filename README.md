@@ -68,12 +68,37 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
     </p>
   </div>
   <div style="flex: 0 0 48%;">
-    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/e6b96eb0-140d-449f-981b-6cb2c4a148af" alt="Login With email,Google Signin" height="640" width="360" />
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/6d042d61-d6e2-47ae-8d80-503e2942b7bb" alt="Enter OTP page" height="640" width="360" />
     <p align="center">
-      <em>Figure 4: Login With email,Google Signin</em>
+      <em>Figure 4: Enter OTP page</em>
+    </p>
+  </div>
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/e6b96eb0-140d-449f-981b-6cb2c4a148af" alt="Login With email, Google Signin" height="640" width="360" />
+    <p align="center">
+      <em>Figure 5: Login With email, Google Signin</em>
+    </p>
+  </div>
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/214f8984-0333-4436-a1e8-0e8adb292915" alt="Home screen" height="640" width="360" />
+    <p align="center">
+      <em>Figure 6: Home screen</em>
+    </p>
+  </div>
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/f74017f5-460e-452b-b958-9e8100150bc1" alt="Car detail page" height="640" width="360" />
+    <p align="center">
+      <em>Figure 7: Car detail page</em>
+    </p>
+  </div>
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/269e5a74-48e3-4c89-ba0a-83505d510043" alt="Booking Successful page" height="640" width="360" />
+    <p align="center">
+      <em>Figure 8: Booking Successful page</em>
     </p>
   </div>
 </div>
+
 
 
 
