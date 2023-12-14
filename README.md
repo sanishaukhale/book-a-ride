@@ -37,7 +37,7 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
 
 ## Installation
 1. **Download APK:**
-   - Download the APK file from the link section of the repository.
+   - Download the APK file from the [releases](https://github.com/sanishaukhale/book-a-ride/releases/) section of the repository.
 
 2. **Enable Installation from Unknown Sources:**
    - Before installing, make sure your device allows installations from unknown sources. You can enable this in your device settings.
@@ -98,9 +98,3 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
     </p>
   </div>
 </div>
-
-
-
-
-
-
