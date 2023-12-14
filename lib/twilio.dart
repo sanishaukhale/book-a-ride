@@ -5,7 +5,7 @@ class Twilio {
     late TwilioFlutter twilioFlutter;
     twilioFlutter = TwilioFlutter(
         accountSid: 'AC74ab51642b9534fa67dc34c3ef20b601',
-        authToken: 'd53ded7d5bbe370bff3fc7112556f990',
+        authToken: '718f1ed7e5e23a8fe032929b7179e370',
         twilioNumber: '+19375950946');
     twilioFlutter.sendSMS(
         toNumber: '+919145681593',
