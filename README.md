@@ -46,6 +46,13 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
    - Locate the downloaded APK file and tap on it to begin the installation process.
    - Follow the on-screen instructions to complete the installation.
 
+### Note: Phone Sign-In and Sending OTP
+
+- **Phone Sign-In and Sending OTP:**
+  - Phone sign-in and the sending of OTP (One-Time Password) may not work properly on emulators.
+  - It is recommended to test these features on a physical Android device for the best experience.
+
+
 ## Screenshots
 
 <div align="center" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
@@ -98,3 +105,6 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
     </p>
   </div>
 </div>
+
+
+
