@@ -36,12 +36,46 @@ The "Book a Ride" app is a convenient platform that allows users to explore and 
    - Send SMS to a predefined number with booking details.
 
 ## Installation
+1. **Download APK:**
+   - Download the APK file from the link section of the repository.
 
+2. **Enable Installation from Unknown Sources:**
+   - Before installing, make sure your device allows installations from unknown sources. You can enable this in your device settings.
+
+3. **Install the App:**
+   - Locate the downloaded APK file and tap on it to begin the installation process.
+   - Follow the on-screen instructions to complete the installation.
 
 ## Screenshots
-![Splash_Screen](https://github.com/sanishaukhale/book-a-ride/assets/43377357/dad804f1-143f-4ece-bf79-784da728c86b)
-![Signup](https://github.com/sanishaukhale/book-a-ride/assets/43377357/da9068de-597d-4934-b4e7-67d433943ff4)
-![Login with phone](https://github.com/sanishaukhale/book-a-ride/assets/43377357/eef3fd64-d1c4-40c1-95b6-f5b9b44cce44)
-![Login With email,Google Signin](https://github.com/sanishaukhale/book-a-ride/assets/43377357/e6b96eb0-140d-449f-981b-6cb2c4a148af)
+
+<div align="center" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/dad804f1-143f-4ece-bf79-784da728c86b" alt="Splash Screen" height="640" width="360" />
+    <p align="center">
+      <em>Figure 1: Splash Screen</em>
+    </p>
+  </div>
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/da9068de-597d-4934-b4e7-67d433943ff4" alt="Signup" height="640" width="360" />
+    <p align="center">
+      <em>Figure 2: Signup</em>
+    </p>
+  </div>
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/eef3fd64-d1c4-40c1-95b6-f5b9b44cce44" alt="Login with phone" height="640" width="360" />
+    <p align="center">
+      <em>Figure 3: Login with phone</em>
+    </p>
+  </div>
+  <div style="flex: 0 0 48%;">
+    <img src="https://github.com/sanishaukhale/book-a-ride/assets/43377357/e6b96eb0-140d-449f-981b-6cb2c4a148af" alt="Login With email,Google Signin" height="640" width="360" />
+    <p align="center">
+      <em>Figure 4: Login With email,Google Signin</em>
+    </p>
+  </div>
+</div>
+
+
+
 
 
