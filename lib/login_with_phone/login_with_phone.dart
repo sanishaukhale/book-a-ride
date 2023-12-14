@@ -28,7 +28,10 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(left: 25, right: 25),
+        margin: const EdgeInsets.only(
+          left: 25,
+          right: 25,
+        ),
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(

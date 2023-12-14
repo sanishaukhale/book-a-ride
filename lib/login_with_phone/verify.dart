@@ -55,11 +55,11 @@ class _MyVerifyState extends State<MyVerify> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               const Text(
-                "We need to register your phone without getting started!",
+                "Please enter OTP received",
                 style: TextStyle(
                   fontSize: 16,
                 ),

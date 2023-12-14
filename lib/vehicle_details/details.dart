@@ -1,6 +1,7 @@
-import 'package:book_a_ride/twilio.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import '/twilio.dart';
 
 class Details extends StatelessWidget {
   final String id;
@@ -52,7 +53,9 @@ class Details extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(
+                    16.0,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -77,8 +80,6 @@ class Details extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                // Description
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
@@ -102,7 +103,8 @@ class Details extends StatelessWidget {
                             return AlertDialog(
                               title: const Text('Booking Confirmed!'),
                               content: Text(
-                                  'You have successfully booked ${carDetails['name']}.'),
+                                'You have successfully booked ${carDetails['name']}.',
+                              ),
                               actions: [
                                 TextButton(
                                   onPressed: () {
@@ -119,9 +121,12 @@ class Details extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: const Text('Car Unavailable!!!!'),
+                              title: const Text(
+                                'Car Unavailable!!!!',
+                              ),
                               content: Text(
-                                  '${carDetails['name']} is unavailable for now.'),
+                                '${carDetails['name']} is unavailable for now.',
+                              ),
                               actions: [
                                 TextButton(
                                   onPressed: () {
@@ -137,8 +142,10 @@ class Details extends StatelessWidget {
                     },
                     child: const Text(
                       'Book Now',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

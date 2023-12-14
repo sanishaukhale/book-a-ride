@@ -97,8 +97,8 @@ class Signup extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.88,
@@ -257,8 +257,8 @@ class Signup extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

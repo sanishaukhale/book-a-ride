@@ -124,9 +124,19 @@ class Auth {
             accessToken: googleSignInAuthentication.accessToken);
 
         UserCredential result = await auth.signInWithCredential(authCredential);
-        User? user = result.user;
 
         if (result != null) {
+          Get.showSnackbar(
+            const GetSnackBar(
+              title: "Success",
+              message: 'Signed in successfully',
+              backgroundColor: Colors.green,
+              duration: Duration(seconds: 2),
+            ),
+          );
+
+          final SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setBool('loggedIn', true);
           Get.offAll(const HomeScreen());
         }
       }
