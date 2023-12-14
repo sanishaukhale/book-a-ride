@@ -94,7 +94,7 @@ class _MyVerifyState extends State<MyVerify> {
                     elevation: 3.0,
                   ),
                   child: const Text(
-                    'SEND OTP',
+                    'VERIFY',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 16.0,

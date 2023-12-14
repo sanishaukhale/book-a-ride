@@ -105,7 +105,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.07,
+                height: MediaQuery.of(context).size.height * 0.06,
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
