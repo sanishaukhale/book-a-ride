@@ -105,15 +105,9 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.06,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green.shade600,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
                   onPressed: () {
                     if (phone.isNotEmpty) {
                       Auth a = Auth();
@@ -130,9 +124,20 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                       );
                     }
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    elevation: 3.0,
+                  ),
                   child: const Text(
-                    "Send OTP",
-                    style: TextStyle(color: Colors.white),
+                    'SEND OTP',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

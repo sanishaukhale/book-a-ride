@@ -16,54 +16,6 @@ class _MyVerifyState extends State<MyVerify> {
   var code = '';
   @override
   Widget build(BuildContext context) {
-    final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
-      textStyle: const TextStyle(
-          fontSize: 20,
-          color: Color.fromRGBO(
-            30,
-            60,
-            87,
-            1,
-          ),
-          fontWeight: FontWeight.w600),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color.fromRGBO(
-            234,
-            239,
-            243,
-            1,
-          ),
-        ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-    );
-
-    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(
-        color: const Color.fromRGBO(
-          114,
-          178,
-          238,
-          1,
-        ),
-      ),
-      borderRadius: BorderRadius.circular(8),
-    );
-
-    final submittedPinTheme = defaultPinTheme.copyWith(
-      decoration: defaultPinTheme.decoration?.copyWith(
-        color: const Color.fromRGBO(
-          234,
-          239,
-          243,
-          1,
-        ),
-      ),
-    );
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -127,22 +79,27 @@ class _MyVerifyState extends State<MyVerify> {
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.06,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green.shade600,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  onPressed: () async {
+                  onPressed: () {
                     Auth auth = Auth();
                     auth.verifyOtp(code);
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    elevation: 3.0,
+                  ),
                   child: const Text(
-                    "Verify Phone Number",
-                    style: TextStyle(color: Colors.white),
+                    'SEND OTP',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -158,7 +115,7 @@ class _MyVerifyState extends State<MyVerify> {
                       padding: EdgeInsets.zero,
                     ),
                     onPressed: () {
-                      Get.to(LoginWithPhone());
+                      Get.to(const LoginWithPhone());
                     },
                     child: const Text(
                       "Click Here",

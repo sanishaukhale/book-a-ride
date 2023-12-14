@@ -156,30 +156,79 @@ class LoginWithEmail extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
-                width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.07,
+                width: double.infinity,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green.shade600,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
                   onPressed: () {
                     if (email.text.isNotEmpty || password.text.isNotEmpty) {
                       Auth auth = Auth();
                       auth.signInUser(email.text, password.text);
                     } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Fields cannot be Empty"),
-                      ));
+                      Get.showSnackbar(
+                        const GetSnackBar(
+                          title: "Error",
+                          message: 'Fields cannot be Empty',
+                          backgroundColor: Colors.red,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
                     }
                   },
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
+                    elevation: 3.0,
+                  ),
+                  child: const Text(
+                    'LOGIN',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Auth auth = Auth();
+                    auth.signinWithGoogle();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    elevation: 3.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/google.png',
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      const Text(
+                        'Sign in with Google',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

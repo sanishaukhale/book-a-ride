@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "238906833613",
+    "firebase_url": "https://book-a-ride-c094e-default-rtdb.firebaseio.com",
     "project_id": "book-a-ride-c094e",
     "storage_bucket": "book-a-ride-c094e.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.book_a_ride"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "238906833613-o9slrn67e1n7oecuuol9nkibbgkou6s5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.book_a_ride",
+            "certificate_hash": "dfc4851bdd88b4a14dde62dcecd3b55aaa0623dd"
+          }
+        },
+        {
+          "client_id": "238906833613-c7m59j5vudcs3u3u98b9f1c7r3athfrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyASnreIA-qZ916PVBhf9NFx80C3o2EO81c"
@@ -20,7 +34,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "238906833613-c7m59j5vudcs3u3u98b9f1c7r3athfrj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "238906833613-il4c5corti3f5djorqflbmsdh09k38io.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bookARide.RunnerTests"
+              }
+            }
+          ]
         }
       }
     }

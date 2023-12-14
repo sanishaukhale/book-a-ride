@@ -24,6 +24,7 @@ dependencies:
   cloud_firestore: ^4.13.6
   shared_preferences: ^2.2.2
   twilio_flutter: ^0.0.9
+  google_sign_in: ^6.2.1
 
 
 

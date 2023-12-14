@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Details extends StatelessWidget {
   final String id;
 
-  Details({super.key, required this.id});
+  const Details({super.key, required this.id});
   fetchCarData() async {
     try {
       DocumentSnapshot documentSnapshot =

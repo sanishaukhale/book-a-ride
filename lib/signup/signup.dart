@@ -220,31 +220,39 @@ class Signup extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.06,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green.shade600,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
                   onPressed: () {
                     if (email.text.isNotEmpty ||
                         password.text.isNotEmpty ||
                         confirmPassword.text.isNotEmpty) {
                       Auth a = Auth();
-                      var x = a.createUser(email.text, password.text);
+                      a.createUser(email.text, password.text);
                     } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Fields cannot be Empty"),
-                      ));
+                      Get.showSnackbar(
+                        const GetSnackBar(
+                          title: "Error",
+                          message: 'Fields cannot be Empty',
+                          backgroundColor: Colors.red,
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
                     }
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    elevation: 3.0,
+                  ),
                   child: const Text(
-                    "Signup",
+                    'SIGNUP',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),

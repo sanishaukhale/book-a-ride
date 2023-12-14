@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '/home/home.dart';
@@ -27,7 +28,7 @@ class Auth {
       Get.showSnackbar(
         const GetSnackBar(
           title: "Error",
-          message: 'Something went wrong',
+          message: 'Something went wrong, please try again',
           backgroundColor: Colors.red,
           duration: Duration(seconds: 2),
         ),
@@ -55,7 +56,7 @@ class Auth {
       Get.showSnackbar(
         const GetSnackBar(
           title: "Error",
-          message: 'Something went wrong',
+          message: 'Something went wrong, please try again',
           backgroundColor: Colors.red,
           duration: Duration(seconds: 2),
         ),
@@ -97,7 +98,7 @@ class Auth {
       Get.showSnackbar(
         const GetSnackBar(
           title: "Error",
-          message: 'Something went wrong',
+          message: 'Enter the correct OTP',
           backgroundColor: Colors.red,
           duration: Duration(seconds: 2),
         ),
@@ -107,5 +108,37 @@ class Auth {
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  signinWithGoogle() async {
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
+        final AuthCredential authCredential = GoogleAuthProvider.credential(
+            idToken: googleSignInAuthentication.idToken,
+            accessToken: googleSignInAuthentication.accessToken);
+
+        UserCredential result = await auth.signInWithCredential(authCredential);
+        User? user = result.user;
+
+        if (result != null) {
+          Get.offAll(const HomeScreen());
+        }
+      }
+    } catch (e) {
+      Get.showSnackbar(
+        const GetSnackBar(
+          title: "Error",
+          message: 'Try signin again',
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
   }
 }
