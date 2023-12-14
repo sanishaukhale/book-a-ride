@@ -29,8 +29,7 @@ class Signup extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/signup.png',
-                width: 200,
-                height: 200,
+                height: MediaQuery.of(context).size.height * 0.28,
               ),
               const Text(
                 "SIGNUP",
@@ -39,11 +38,8 @@ class Signup extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.04,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.88,
@@ -61,6 +57,10 @@ class Signup extends StatelessWidget {
                   style: const TextStyle(color: Colors.grey),
                   controller: email,
                   decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.person_outlined,
+                      size: 28,
+                    ),
                     hintText: 'Email',
                     hintStyle: const TextStyle(
                       fontSize: 15,
@@ -119,6 +119,10 @@ class Signup extends StatelessWidget {
                   ),
                   controller: password,
                   decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.fingerprint_outlined,
+                      size: 28,
+                    ),
                     hintText: 'Password',
                     hintStyle: const TextStyle(
                       fontSize: 15,
@@ -155,8 +159,8 @@ class Signup extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.88,
@@ -165,13 +169,17 @@ class Signup extends StatelessWidget {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) {
                     if (password.text != confirmPassword.text) {
-                      return "Passwords doesnt match";
+                      return "Passwords doesn't match";
                     }
                     return null;
                   },
                   style: const TextStyle(color: Colors.grey),
                   controller: confirmPassword,
                   decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.fingerprint_outlined,
+                      size: 28,
+                    ),
                     hintText: 'Confirm Password',
                     hintStyle: const TextStyle(
                       fontSize: 15,
@@ -208,12 +216,12 @@ class Signup extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
                 width: double.infinity,
-                height: 45,
+                height: MediaQuery.of(context).size.height * 0.06,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green.shade600,
@@ -233,47 +241,59 @@ class Signup extends StatelessWidget {
                       ));
                     }
                   },
-                  child: const Text("Signup"),
+                  child: const Text(
+                    "Signup",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 45,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                  const Text("Login with Email? "),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                    ),
+                    onPressed: () {
+                      Get.to(
+                        LoginWithEmail(),
+                      );
+                    },
+                    child: const Text(
+                      "Click Here",
+                      style: TextStyle(
+                        color: Colors.blue,
                       ),
-                      onPressed: () {
-                        Get.to(LoginWithEmail());
-                      },
-                      child: const Text("Login with Email"),
                     ),
                   ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 45,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      onPressed: () {
-                        Get.to(
-                          const LoginWithPhone(),
-                        );
-                      },
-                      child: const Text("Login with Phone"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Login with Phone? "),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
                     ),
-                  )
+                    onPressed: () {
+                      Get.to(
+                        const LoginWithPhone(),
+                      );
+                    },
+                    child: const Text(
+                      "Click Here",
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],

@@ -9,13 +9,17 @@ class LoginWithEmail extends StatelessWidget {
   LoginWithEmail({super.key});
 
   final TextEditingController email = TextEditingController();
+
   final TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(left: 25, right: 25),
+        margin: const EdgeInsets.only(
+          left: 25,
+          right: 25,
+        ),
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(
@@ -23,18 +27,17 @@ class LoginWithEmail extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/login.png',
-                width: 200,
-                height: 200,
+                height: MediaQuery.of(context).size.height * 0.28,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               const Text(
                 "Login with Email",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 40,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.04,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.88,
@@ -52,6 +55,10 @@ class LoginWithEmail extends StatelessWidget {
                   style: const TextStyle(color: Colors.grey),
                   controller: email,
                   decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.person_outlined,
+                      size: 28,
+                    ),
                     hintText: 'Email',
                     hintStyle: const TextStyle(
                       fontSize: 15,
@@ -88,8 +95,8 @@ class LoginWithEmail extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.88,
@@ -105,6 +112,10 @@ class LoginWithEmail extends StatelessWidget {
                   style: const TextStyle(color: Colors.grey),
                   controller: password,
                   decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.fingerprint_outlined,
+                      size: 28,
+                    ),
                     hintText: 'Password',
                     hintStyle: const TextStyle(
                       fontSize: 15,
@@ -141,67 +152,76 @@ class LoginWithEmail extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
                 width: double.infinity,
-                height: 45,
+                height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green.shade600,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green.shade600,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    onPressed: () {
-                      if (email.text.isNotEmpty || password.text.isNotEmpty) {
-                        Auth auth = Auth();
-                        auth.signInUser(email.text, password.text);
-                      } else {
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                          content: Text("Fields cannot be Empty"),
-                        ));
-                      }
-                    },
-                    child: const Text("Login")),
+                  ),
+                  onPressed: () {
+                    if (email.text.isNotEmpty || password.text.isNotEmpty) {
+                      Auth auth = Auth();
+                      auth.signInUser(email.text, password.text);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Fields cannot be Empty"),
+                      ));
+                    }
+                  },
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 45,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        onPressed: () {
-                          Get.to(Signup());
-                        },
-                        child: const Text("Signup")),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 45,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      onPressed: () {
-                        Get.to(const LoginWithPhone());
-                      },
-                      child: const Text("Login with Phone"),
+                  const Text("Don't have an Account?"),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
                     ),
-                  )
+                    onPressed: () {
+                      Get.to(
+                        Signup(),
+                      );
+                    },
+                    child: const Text(
+                      "Signup",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Continue with Phone? "),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                    ),
+                    onPressed: () {
+                      Get.to(const LoginWithPhone());
+                    },
+                    child: const Text(
+                      "Click Here",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
                 ],
               )
             ],

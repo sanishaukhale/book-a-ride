@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SplashScreenView(
         navigateWhere: isLoaded,
         navigateRoute: sharedPref ? const HomeScreen() : LoginWithEmail(),
-        logoSize:500,
+        logoSize: 500,
         text: FadeAnimatedText(
           "Welcome",
           textStyle: const TextStyle(

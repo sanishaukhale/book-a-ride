@@ -15,6 +15,7 @@ class LoginWithPhone extends StatefulWidget {
 
 class _LoginWithPhoneState extends State<LoginWithPhone> {
   TextEditingController countryController = TextEditingController();
+
   var phone = "";
 
   @override
@@ -35,11 +36,10 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
             children: [
               Image.asset(
                 'assets/images/login.png',
-                width: 200,
-                height: 200,
+                height: MediaQuery.of(context).size.height * 0.3,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               const Text(
                 "Login with Phone",
@@ -48,17 +48,14 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.04,
               ),
               Container(
-                height: 55,
+                height: MediaQuery.of(context).size.height * 0.07,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    width: 1,
+                    width: MediaQuery.of(context).size.height * 0.001,
                     color: Colors.grey,
                   ),
                   borderRadius: BorderRadius.circular(10),
@@ -66,11 +63,11 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.04,
                     ),
                     SizedBox(
-                      width: 40,
+                      width: MediaQuery.of(context).size.width * 0.1,
                       child: TextField(
                         controller: countryController,
                         keyboardType: TextInputType.number,
@@ -86,8 +83,8 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                         color: Colors.grey,
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.02,
                     ),
                     Expanded(
                       child: TextFormField(
@@ -104,12 +101,12 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
                 width: double.infinity,
-                height: 45,
+                height: MediaQuery.of(context).size.height * 0.06,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green.shade600,
@@ -133,42 +130,47 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                       );
                     }
                   },
-                  child: const Text("Send OTP"),
+                  child: const Text(
+                    "Send OTP",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 45,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        onPressed: () {
-                          Get.to(Signup());
-                        },
-                        child: const Text("Signup")),
+                  const Text("Don't have an Account?"),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                    ),
+                    onPressed: () {
+                      Get.to(Signup());
+                    },
+                    child: const Text(
+                      "Signup",
+                      style: TextStyle(color: Colors.blue),
+                    ),
                   ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 45,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      onPressed: () {
-                        Get.to(LoginWithEmail());
-                      },
-                      child: const Text("Login with Email"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Continue with Email? "),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                    ),
+                    onPressed: () {
+                      Get.to(LoginWithEmail());
+                    },
+                    child: const Text(
+                      "Click Here",
+                      style: TextStyle(color: Colors.blue),
                     ),
                   ),
                 ],

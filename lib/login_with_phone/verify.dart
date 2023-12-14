@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
 import '../authentication/auth.dart';
+import 'login_with_phone.dart';
 
 class MyVerify extends StatefulWidget {
   const MyVerify({Key? key}) : super(key: key);
@@ -88,12 +90,11 @@ class _MyVerifyState extends State<MyVerify> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/phone.png',
-                width: 150,
-                height: 150,
+                'assets/images/login.png',
+                height: MediaQuery.of(context).size.height * 0.28,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025,
               ),
               const Text(
                 "Phone Verification",
@@ -112,8 +113,8 @@ class _MyVerifyState extends State<MyVerify> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               Pinput(
                 length: 6,
@@ -122,12 +123,12 @@ class _MyVerifyState extends State<MyVerify> {
                 },
                 showCursor: true,
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               SizedBox(
                 width: double.infinity,
-                height: 45,
+                height: MediaQuery.of(context).size.height * 0.06,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green.shade600,
@@ -136,29 +137,36 @@ class _MyVerifyState extends State<MyVerify> {
                     ),
                   ),
                   onPressed: () async {
-                    Auth a = Auth();
-                    a.verifyOtp(code);
+                    Auth auth = Auth();
+                    auth.verifyOtp(code);
                   },
                   child: const Text(
                     "Verify Phone Number",
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Text("Edit Phone Number? "),
                   TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                    ),
                     onPressed: () {
-                      // Get.to(LoginWithPhone());
+                      Get.to(LoginWithPhone());
                     },
                     child: const Text(
-                      "Edit Phone Number ?",
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
+                      "Click Here",
+                      style: TextStyle(color: Colors.blue),
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
